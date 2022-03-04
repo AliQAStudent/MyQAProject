@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myqa.project.DB.DB;
+import com.myqa.project.DTOs.GetAllSalesResponse;
 import com.myqa.project.DTOs.GetAllStockResponse;
 import com.myqa.project.DTOs.LoadStockRequest;
 import com.myqa.project.DTOs.LoadStockResponse;
@@ -22,14 +23,14 @@ public class APIController {
 	
 	//START Supplier APIs
 	@PostMapping("/loadStock")
-	public LoadStockResponse register(@RequestBody LoadStockRequest newStock) {
+	public LoadStockResponse loadStock(@RequestBody LoadStockRequest newStock) {
 		DB.getInstance().updateStock(newStock.getType(),newStock.getAmount());
 		LoadStockResponse resp = new LoadStockResponse();
 		resp.AllCurrentStock = DB.getInstance().getAllStock();
 	    return resp;
 	}
 	@PostMapping("/updatePrices")
-	public UpdatePricesResponse register(@RequestBody UpdatePricesRequest newPrice) {
+	public UpdatePricesResponse updatePrices(@RequestBody UpdatePricesRequest newPrice) {
 		DB.getInstance().updatePrice(newPrice.getType(),newPrice.getNewPrice());
 		UpdatePricesResponse resp = new UpdatePricesResponse();
 		resp.AllCurrentPrices = DB.getInstance().getAllPrices();
@@ -38,9 +39,19 @@ public class APIController {
 	//END
 	//START Admin APIs
 	@GetMapping("/getAllStock")
-	public GetAllStockResponse register() {
+	public GetAllStockResponse getAllStock() {
 		GetAllStockResponse resp = new GetAllStockResponse();
 		resp.AllCurrentStock = DB.getInstance().getAllStock();
+	    return resp;
+	}
+	@GetMapping("/getTodaysEarnings")
+	public int getTodaysEarnings() {
+		return DB.getInstance().getTodaysEarnings();
+	}
+	@GetMapping("/getAllSales")
+	public GetAllSalesResponse getAllSales() {
+		GetAllSalesResponse resp = new GetAllSalesResponse();
+		resp.AllSales = DB.getInstance().getAllSales();
 	    return resp;
 	}
 	//END

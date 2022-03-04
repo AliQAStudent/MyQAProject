@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.myqa.project.DB.model.Prices;
+import com.myqa.project.DB.model.Sales;
 import com.myqa.project.DB.model.Stock;
 
 public class DB {
@@ -75,6 +76,20 @@ public class DB {
         }
         return foundPrices;
     }
+    
+    public int getTodaysEarnings() {
+        String sql = "SELECT sum(item_price) as earnings FROM sales where date >= CURDATE() && date < (CURDATE() + INTERVAL 1 DAY)";
+        int returned = 0;
+        try {
+        	ResultSet res = statement.executeQuery(sql);
+            while (res.next()) {
+            	returned = res.getInt("earnings");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return returned;
+    }
 
 
     public List<Stock> getAllStock() {
@@ -84,6 +99,20 @@ public class DB {
         	ResultSet res = statement.executeQuery(sql);
             while (res.next()) {
             	returned.add(new Stock(res.getInt("id"), res.getString("type"), res.getInt("amount")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return returned;
+    }
+    
+    public List<Sales> getAllSales() {
+        String sql = "SELECT * FROM sales";
+        List<Sales> returned = new ArrayList<Sales>();
+        try {
+        	ResultSet res = statement.executeQuery(sql);
+            while (res.next()) {
+            	returned.add(new Sales(res.getInt("id"), res.getString("type"), res.getInt("item_price"), res.getDate("date")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
