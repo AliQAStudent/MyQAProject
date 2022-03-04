@@ -11,6 +11,8 @@ import com.myqa.project.DB.DB;
 import com.myqa.project.DB.model.Stock;
 import com.myqa.project.DTOs.LoadStockRequest;
 import com.myqa.project.DTOs.LoadStockResponse;
+import com.myqa.project.DTOs.UpdatePricesRequest;
+import com.myqa.project.DTOs.UpdatePricesResponse;
 
 @RestController
 public class Controller {
@@ -18,6 +20,8 @@ public class Controller {
     public String getAllUsers() {
         return "hello world";
     }
+	
+	//START Supplier APIs
 	@PostMapping("/loadStock")
 	public LoadStockResponse register(@RequestBody LoadStockRequest newStock) {
 		DB.getInstance().updateStock(newStock.getType(),newStock.getAmount());
@@ -25,4 +29,12 @@ public class Controller {
 		resp.AllCurrentStock = DB.getInstance().getAllStock();
 	    return resp;
 	}
+	@PostMapping("/updatePrices")
+	public UpdatePricesResponse register(@RequestBody UpdatePricesRequest newPrice) {
+		DB.getInstance().updatePrice(newPrice.getType(),newPrice.getNewPrice());
+		UpdatePricesResponse resp = new UpdatePricesResponse();
+		resp.AllCurrentPrices = DB.getInstance().getAllPrices();
+	    return resp;
+	}
+	//END
 }

@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.myqa.project.DB.model.Prices;
 import com.myqa.project.DB.model.Stock;
 
 public class DB {
@@ -61,6 +62,19 @@ public class DB {
         }
         return foundStock;
     }
+    
+    public Prices findPriceByType(String type) {
+        String sql = "SELECT * FROM prices WHERE type='" + type+"'";
+        Prices foundPrices = new Prices();
+        try {
+            ResultSet res = statement.executeQuery(sql);
+            res.next();
+            foundPrices = new Prices(res.getString("type"), res.getInt("price"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return foundPrices;
+    }
 
 
     public List<Stock> getAllStock() {
@@ -76,8 +90,21 @@ public class DB {
         }
         return returned;
     }
+    
+    public List<Prices> getAllPrices() {
+        String sql = "SELECT * FROM prices";
+        List<Prices> returned = new ArrayList<Prices>();
+        try {
+        	ResultSet res = statement.executeQuery(sql);
+            while (res.next()) {
+            	returned.add(new Prices(res.getString("type"), res.getInt("price")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return returned;
+    }
 
-    // Update
     public void updateStock(String type, int newAmount) {
         // search for the student using the id -> findById(int id)
         Stock found = findStockByType(type);
@@ -87,6 +114,24 @@ public class DB {
         } else {
             String sql = String.format("UPDATE stock SET amount=amount+%d where type ='%s'",
                                             newAmount, type);
+            try {
+                statement.executeUpdate(sql);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+    }
+    
+    public void updatePrice(String type, int newPrice) {
+        // search for the student using the id -> findById(int id)
+    	Prices found = findPriceByType(type);
+
+        if (found.getType().isEmpty()) {
+            System.out.println("Doesn't exist");
+        } else {
+            String sql = String.format("UPDATE prices SET price=%d where type ='%s'",
+            		newPrice, type);
             try {
                 statement.executeUpdate(sql);
             } catch (SQLException e) {
