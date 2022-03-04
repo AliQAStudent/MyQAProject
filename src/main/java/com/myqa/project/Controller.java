@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.myqa.project.DB.DB;
 import com.myqa.project.DB.model.Stock;
-import com.myqa.project.DTOs.LoadStock;
+import com.myqa.project.DTOs.LoadStockRequest;
 import com.myqa.project.DTOs.LoadStockResponse;
 
 @RestController
@@ -19,7 +19,7 @@ public class Controller {
         return "hello world";
     }
 	@PostMapping("/loadStock")
-	public LoadStockResponse register(@RequestBody LoadStock newStock) {
+	public LoadStockResponse register(@RequestBody LoadStockRequest newStock) {
 		DB.getInstance().updateStock(newStock.getType(),newStock.getAmount());
 		LoadStockResponse resp = new LoadStockResponse();
 		resp.AllCurrentStock = DB.getInstance().getAllStock();

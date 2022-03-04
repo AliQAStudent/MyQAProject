@@ -1,7 +1,7 @@
 package com.myqa.project.DTOs;
 
 
-public class LoadStock {
+public class LoadStockRequest {
 	private String type;
 	private int amount;
 	public String getType() {
