@@ -10,4 +10,11 @@ public class LoadStockRequest {
 	public int getAmount() {
 		return amount;
 	}
+	public LoadStockRequest() {
+		
+	}
+	public LoadStockRequest(String type, int amount) {
+		this.type = type;
+		this.amount = amount;
+	}
 }

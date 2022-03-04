@@ -10,4 +10,8 @@ public class UpdatePricesRequest {
 	public int getNewPrice() {
 		return newPrice;
 	}
+	public UpdatePricesRequest(String type, int newPrice) {
+		this.type = type;
+		this.newPrice = newPrice;
+	}
 }

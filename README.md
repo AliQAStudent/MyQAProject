@@ -74,6 +74,12 @@ The response includes a list with all the current ice creams and their correspon
 
 This API returns a full list with all existing current stock
 
+## Admin API: Get All Prices (GET)
+
+`localhost:8080/getAllPrices`
+
+This API returns a full list with all existing current prices
+
 ## Admin API: Get Today's earnings (GET)
 
 `localhost:8080/getTodaysEarnings`

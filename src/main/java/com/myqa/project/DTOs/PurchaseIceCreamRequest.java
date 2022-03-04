@@ -6,4 +6,7 @@ public class PurchaseIceCreamRequest {
 	public String getType() {
 		return type;
 	}
+	public PurchaseIceCreamRequest(String type) {
+		this.type = type;
+	}
 }

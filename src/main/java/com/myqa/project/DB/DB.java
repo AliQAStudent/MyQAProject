@@ -39,18 +39,6 @@ public class DB {
             e.printStackTrace();
         }
     }
-    // CREATE
-    public void createCustomer(String first_name, String surname) {
-        String sql = String.format("INSERT INTO customers(`first_name`, `surname`)"
-                                        + " VALUES ('%s', '%s')", first_name, surname);
-        try {
-                        statement.executeUpdate(sql);
-        } catch (SQLException e) {
-                        e.printStackTrace();
-        }
-
-    }
-    
     public Stock findStockByType(String type) {
         String sql = "SELECT * FROM stock WHERE type='" + type+"'";
         Stock foundStock = new Stock();
@@ -148,7 +136,6 @@ public class DB {
                 System.out.println(e);
             }
         }
-
     }
     
     public String purchaseIceCream(String type) {
@@ -191,17 +178,5 @@ public class DB {
                 System.out.println(e);
             }
         }
-
     }
-
-    // Delete
-    public void deleteStudent(String type) {
-        String sql = "DELETE FROM stock WHERE type = '" + type + "'";
-        try {
-            statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
-
 }

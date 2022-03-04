@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myqa.project.DB.DB;
+import com.myqa.project.DTOs.GetAllPricesResponse;
 import com.myqa.project.DTOs.GetAllSalesResponse;
 import com.myqa.project.DTOs.GetAllStockResponse;
 import com.myqa.project.DTOs.LoadStockRequest;
@@ -17,8 +18,8 @@ import com.myqa.project.DTOs.UpdatePricesResponse;
 
 @RestController
 public class APIController {
-	@RequestMapping("/test")
-    public String getAllUsers() {
+	@RequestMapping("/")
+    public String defaultGreeting() {
         return "hello world";
     }
 	
@@ -43,6 +44,12 @@ public class APIController {
 	public GetAllStockResponse getAllStock() {
 		GetAllStockResponse resp = new GetAllStockResponse();
 		resp.AllCurrentStock = DB.getInstance().getAllStock();
+	    return resp;
+	}
+	@GetMapping("/getAllPrices")
+	public GetAllPricesResponse getAllPrices() {
+		GetAllPricesResponse resp = new GetAllPricesResponse();
+		resp.AllCurrentPrices = DB.getInstance().getAllPrices();
 	    return resp;
 	}
 	@GetMapping("/getTodaysEarnings")
