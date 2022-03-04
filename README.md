@@ -127,29 +127,29 @@ More variations of ice cream... perhaps flavours. I would also look deeper into 
 
 ## Screenshots showing your postman requests and the output from the API.
 
-![getAllStock](https://imgur.com/T19TX0b)
+https://imgur.com/T19TX0b
 
-![getAllPrices](https://imgur.com/gxX86V3)
+https://imgur.com/gxX86V3
 
-![getTodaysEarnings](https://imgur.com/zwGHoxJ)
+https://imgur.com/zwGHoxJ
 
-![getAllSales](https://imgur.com/UYupbJ2)
+https://imgur.com/UYupbJ2
 
-![loadStock](https://imgur.com/OrKAeD5)
+https://imgur.com/OrKAeD5
 
-![updatePrices](https://imgur.com/nlVk05Q)
+https://imgur.com/nlVk05Q
 
-![purchaseIceCream](https://imgur.com/SXZJyva)
+https://imgur.com/SXZJyva
 
 ## Screenshots of your database to prove that data is being persisted.
 
-![db](https://imgur.com/vv6qk5m)
+https://imgur.com/vv6qk5m
 
 ## Screenshot of your test results, including coverage report.
 
-![test1](https://imgur.com/K548HUR)
+https://imgur.com/K548HUR
 
-![test2](https://imgur.com/4GOkhMS)
+https://imgur.com/4GOkhMS
 
 ## Link to Jira Board - You must add your trainer(s) as collaborators also.
 
