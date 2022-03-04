@@ -40,7 +40,7 @@ A self-executable Jar and "Fat Jar" can be found in the target directory
 
 ## Supplier API: Load Stock (POST)
 
-This API lets suppliers unload new stock to the shop inventory. It allows to add a set amount of new ice creams of a single type. The response includes a list with all the current updated stock.
+This API lets suppliers unload new stock to the shop inventory. It allows to add a set amount of new ice creams of a single type. 
 
 `localhost:8080/loadStock`
 
@@ -51,10 +51,11 @@ Sample body:
     "amount":5
 }
 ```
+The response includes a list with all the current updated stock.
 
 ## Supplier API: Update Prices (POST)
 
-This API allows suppliers to update the shop's selling prices for a given type of ice cream. The response includes a list with all the current ice creams and their corresponding price
+This API allows suppliers to update the shop's selling prices for a given type of ice cream. 
 
 `localhost:8080/updatePrices`
 
@@ -65,6 +66,7 @@ Sample body:
     "newPrice":5
 }
 ```
+The response includes a list with all the current ice creams and their corresponding price
 
 ## Admin API: Get All Stock (GET)
 
@@ -84,4 +86,17 @@ This API returns an integer representing today's total earnings
 
 This API returns a list containing all sales (for all time) 
 
+## Customer API: Purchase Ice Cream (POST)
 
+This API lets customers purchase a single ice cream. It updates the stock in the backend by decreasing by 1 the amount of ice creams in stock with the given type. It also creates a sales record so that admins can see the sale with their APIs. 
+
+`localhost:8080/loadStock`
+
+Sample body:
+```
+{
+    "type": "cone"
+}
+```
+
+Response: a string (SUCCESS/NO STOCK)
