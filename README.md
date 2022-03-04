@@ -12,13 +12,13 @@ CREATE TABLE `icecream_shop`.`stock` (
 
 CREATE TABLE `icecream_shop`.`prices` (
   `type` VARCHAR(45) NOT NULL,
-  `price` DECIMAL(2) NOT NULL);
+  `price` INT NOT NULL);
 
 CREATE TABLE `icecream_shop`.`sales` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NOT NULL,
-  `item_price` DECIMAL(2) NOT NULL,
-  `date` VARCHAR(45) NOT NULL,
+  `item_price` INT NOT NULL,
+  `date` DATETIME NOT NULL,
   PRIMARY KEY (`id`));
 insert into icecream_shop.prices (type,price) values ('cone',4);
 insert into icecream_shop.prices (type,price) values ('tub',3);
