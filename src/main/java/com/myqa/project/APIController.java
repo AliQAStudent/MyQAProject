@@ -11,6 +11,7 @@ import com.myqa.project.DTOs.GetAllSalesResponse;
 import com.myqa.project.DTOs.GetAllStockResponse;
 import com.myqa.project.DTOs.LoadStockRequest;
 import com.myqa.project.DTOs.LoadStockResponse;
+import com.myqa.project.DTOs.PurchaseIceCreamRequest;
 import com.myqa.project.DTOs.UpdatePricesRequest;
 import com.myqa.project.DTOs.UpdatePricesResponse;
 
@@ -53,6 +54,12 @@ public class APIController {
 		GetAllSalesResponse resp = new GetAllSalesResponse();
 		resp.AllSales = DB.getInstance().getAllSales();
 	    return resp;
+	}
+	//END
+	//START Customer APIs
+	@PostMapping("/purchaseIceCream")
+	public String purchaseIceCream(@RequestBody PurchaseIceCreamRequest purchaseRequest) {
+		return DB.getInstance().purchaseIceCream(purchaseRequest.getType());
 	}
 	//END
 }

@@ -135,11 +135,10 @@ public class DB {
     }
 
     public void updateStock(String type, int newAmount) {
-        // search for the student using the id -> findById(int id)
         Stock found = findStockByType(type);
 
         if (found.getId() == 0) {
-            System.out.println("Doesn't exist");
+            System.out.println("Price or stock item missing in DB... check DB has been initialized");
         } else {
             String sql = String.format("UPDATE stock SET amount=amount+%d where type ='%s'",
                                             newAmount, type);
@@ -152,12 +151,37 @@ public class DB {
 
     }
     
+    public String purchaseIceCream(String type) {
+        Prices foundPrice = findPriceByType(type);
+        Stock foundStock = findStockByType(type);
+        if (foundPrice.getType() == null || foundStock.getId() == 0) {
+            System.out.println("Price or stock item missing in DB... check DB has been initialized");
+            return "NO STOCK";
+        } else {
+        	if(foundStock.getAmount() == 0)
+        		return "NO STOCK";
+        	else {
+        		String sqlUpdateStock = String.format("UPDATE stock SET amount=amount-1 where type ='%s'",type);
+        		String sqlInsertSale = String.format("INSERT INTO sales (type,item_price,date) VALUES ('%s', %d, NOW())",type, foundPrice.getPrice());
+				try {
+					statement.executeUpdate(sqlUpdateStock);
+					statement.executeUpdate(sqlInsertSale);
+				} catch (SQLException e) {
+					System.out.println(e);
+				}
+				return "SUCCESS";
+        	}
+            
+        }
+
+    }
+    
     public void updatePrice(String type, int newPrice) {
         // search for the student using the id -> findById(int id)
     	Prices found = findPriceByType(type);
 
         if (found.getType().isEmpty()) {
-            System.out.println("Doesn't exist");
+            System.out.println("Price or stock item missing in DB... check DB has been initialized");
         } else {
             String sql = String.format("UPDATE prices SET price=%d where type ='%s'",
             		newPrice, type);
