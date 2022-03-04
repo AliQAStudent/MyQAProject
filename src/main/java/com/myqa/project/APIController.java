@@ -1,21 +1,18 @@
 package com.myqa.project;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myqa.project.DB.DB;
-import com.myqa.project.DB.model.Stock;
 import com.myqa.project.DTOs.LoadStockRequest;
 import com.myqa.project.DTOs.LoadStockResponse;
 import com.myqa.project.DTOs.UpdatePricesRequest;
 import com.myqa.project.DTOs.UpdatePricesResponse;
 
 @RestController
-public class Controller {
+public class APIController {
 	@RequestMapping("/test")
     public String getAllUsers() {
         return "hello world";
