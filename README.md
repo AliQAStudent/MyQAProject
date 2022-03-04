@@ -38,7 +38,7 @@ A self-executable Jar and "Fat Jar" can be found in the target directory
 
 # To run the program, use the following endpoints:
 
-## Supplier API: Load Stock
+## Supplier API: Load Stock (POST)
 
 This API lets suppliers unload new stock to the shop inventory. It allows to add a set amount of new ice creams of a single type. The response includes a list with all the current updated stock.
 
@@ -52,7 +52,7 @@ Sample body:
 }
 ```
 
-## Supplier API: Update Prices
+## Supplier API: Update Prices (POST)
 
 This API allows suppliers to update the shop's selling prices for a given type of ice cream. The response includes a list with all the current ice creams and their corresponding price
 
@@ -65,3 +65,22 @@ Sample body:
     "newPrice":5
 }
 ```
+
+## Admin API: Get All Stock (GET)
+
+`localhost:8080/getAllStock`
+
+This API returns a full list with all existing current stock
+
+## Admin API: Get Today's earnings (GET)
+
+`localhost:8080/getTodaysEarnings`
+
+This API returns an integer representing today's total earnings
+
+## Admin API: Get All Sales (GET)
+
+`localhost:8080/getAllSales`
+
+This API returns a list containing all sales (for all time) 
+
