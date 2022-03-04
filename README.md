@@ -82,9 +82,6 @@ This API returns an integer representing today's total earnings
 
 `localhost:8080/getAllSales`
 
-<<<<<<< HEAD
 This API returns a list containing all sales (for all time) 
-=======
-This API returns a list containing all sales (for all time)
->>>>>>> Readme
+
 
