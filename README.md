@@ -106,3 +106,51 @@ Sample body:
 ```
 
 Response: a string (SUCCESS/NO STOCK)
+
+# Answers to Project's Questions
+
+## Why are we doing this?
+
+We are creating a project to demonstrate we have learned the required skills taught during this course
+
+## How I expected the challenge to go
+
+I expected to have to remember key parts of my training. 
+
+## What went well? / What didn't go as planned?
+
+Being able to go back to my lessons was a big help. Setting up the project took some effort... had to re-create several times. Eclipse also threw some strange errors that I solved with the help of Google
+
+## Possible improvements for future revisions of the project.
+
+More variations of ice cream... perhaps flavours. I would also look deeper into JPA
+
+## Screenshots showing your postman requests and the output from the API.
+
+![getAllStock](https://imgur.com/T19TX0b)
+
+![getAllPrices](https://imgur.com/gxX86V3)
+
+![getTodaysEarnings](https://imgur.com/zwGHoxJ)
+
+![getAllSales](https://imgur.com/UYupbJ2)
+
+![loadStock](https://imgur.com/OrKAeD5)
+
+![updatePrices](https://imgur.com/nlVk05Q)
+
+![purchaseIceCream](https://imgur.com/SXZJyva)
+
+## Screenshots of your database to prove that data is being persisted.
+
+![db](https://imgur.com/vv6qk5m)
+
+## Screenshot of your test results, including coverage report.
+
+![test1](https://imgur.com/K548HUR)
+
+![test2](https://imgur.com/4GOkhMS)
+
+## Link to Jira Board - You must add your trainer(s) as collaborators also.
+
+https://example2022.atlassian.net/jira/software/projects/MYQ/boards/3
