@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "b07d5b93-336f-4a68-8eca-d9673f67b4fa",
+		"name": "MyQAProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Update Prices",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"cone\",\r\n    \"newPrice\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/updatePrices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updatePrices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Load Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"cone\",\r\n    \"amount\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/loadStock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loadStock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Stock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getAllStock",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllStock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Prices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getAllPrices",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllPrices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Today's Earnings",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Sales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getAllSales",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllSales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Ice Cream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\":\"cone\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/purchaseIceCream",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchaseIceCream"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Stock Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getAllStock",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllStock"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
